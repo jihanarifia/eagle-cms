@@ -4,9 +4,10 @@ import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Grid, Container } from '@mui/material';
 import Footer from 'src/components/Footer';
 
-import RecentOrders from './RecentOrders';
+import RecentOrders from './Directories';
 import useDirectory from './hooks/useDirectory';
 import SimpleDialog from 'src/components/Dialog';
+import DirectoryForm from './DirectoryForm';
 type Props = {
   title: string,
 };
@@ -36,12 +37,12 @@ const DirectoryDosen: React.FC<Props> = () => {
         </Grid>
       </Container>
       <SimpleDialog
-        title={'Title Modal'}
+        title={'Add a new directory'}
         open={isModalOpened}
         onClose={handleCloseModal}
         selectedValue={false}
       >
-        <p>Hallo</p>
+        <DirectoryForm onClose={handleCloseModal}/>
       </SimpleDialog>
       <Footer />
     </>

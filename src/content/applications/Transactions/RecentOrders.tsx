@@ -3,7 +3,15 @@ import { CryptoOrder } from 'src/models/crypto_order';
 import RecentOrdersTable from './RecentOrdersTable';
 import { subDays } from 'date-fns';
 
+import db from '../../../firebase'
+
 function RecentOrders() {
+  let ref = db.ref("directory")
+  ref.on("value", snapshot => {
+    const drg = snapshot.val();
+    console.log(drg)
+  });
+
   const cryptoOrders: CryptoOrder[] = [
     {
       id: '1',
